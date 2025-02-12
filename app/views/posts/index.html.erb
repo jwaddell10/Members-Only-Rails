@@ -1,2 +1,22 @@
-<h1>Posts#index</h1>
-<p>Find me in app/views/posts/index.html.erb</p>
+<h1>Posts</h1>
+<div class="posts">
+    <% @posts.each do |post|%>
+        <div class="post-container">
+            <h1>Post text</h1>
+            <%= post.text%>
+            <h1>Created at:</h1>
+            <%= post.created_at%>
+        </div>
+    <% end %>
+        <h1>New Post</h1>
+        <%= form_with model: Post.new do |form| %>
+            <div>
+                <%= form.label :text%>
+                <%= form.text_field :text%>
+            </div>
+            <div>
+                <%= form.submit %>
+            </div>
+        <% end %>
+</div>
+
